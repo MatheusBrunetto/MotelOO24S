@@ -9,8 +9,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -74,6 +78,16 @@ public class LocationServiceImpl extends CrudServiceImpl<Location, UUID> impleme
         return location;
     }
 
+    @Override
+    public List<Location> findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqual(Date inicialDate, Date finalDate) {
+        return locationRepository.findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqual(inicialDate, finalDate);
+    }
+
+    @Override
+    public List<Location> findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqualAndAndBedroom_BedroomType(Date inicialDate, Date finalDate, BedroomType bedroomType) {
+        return locationRepository.findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqualAndAndBedroom_BedroomType(inicialDate, finalDate, bedroomType);
+    }
+
     private double calculateLocationValue(Bedroom bedroom, PeriodType periodType) {
         log.info("Get location value by period type {} for bedroom {}",
                 periodType.getDescription(),
@@ -86,4 +100,10 @@ public class LocationServiceImpl extends CrudServiceImpl<Location, UUID> impleme
             return 0;
         }
     }
+
+    @Override
+    public double calculateTotalConsumption(Location location) {
+        return location.getLocationItems().stream().collect(Collectors.summingDouble(LocationItem::getValue));
+    }
+
 }

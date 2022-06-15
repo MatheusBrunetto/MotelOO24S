@@ -3,6 +3,8 @@ package com.utfpr.moteloo24s.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,8 +16,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class LocationItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_id_location_item")
-    @SequenceGenerator(name = "sequence_id_location_item", sequenceName = "sequence_location_item")
+    @GeneratedValue
+    @Type(type = "uuid-char")
     private UUID id;
     @ManyToOne
     private Location location;

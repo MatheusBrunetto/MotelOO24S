@@ -9,7 +9,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Slf4j
 public abstract class CrudServiceImpl <T, ID extends Serializable> implements CrudService <T, ID> {
@@ -99,5 +104,14 @@ public abstract class CrudServiceImpl <T, ID extends Serializable> implements Cr
     @Transactional
     public Iterable<T> save(Iterable<T> iterable) {
         return getRepository().saveAll(iterable);
+    }
+
+    @Override
+    @Transactional
+    public <E, K> Map<K, List<E>> groupBy(List<E> list, Function<E, K> keyFunction) {
+        return Optional.ofNullable(list)
+                .orElseGet(ArrayList::new)
+                .stream()
+                .collect(Collectors.groupingBy(keyFunction));
     }
 }

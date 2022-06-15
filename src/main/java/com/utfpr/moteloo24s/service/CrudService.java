@@ -6,6 +6,8 @@ import org.springframework.data.domain.Sort;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 
 public interface CrudService <T, ID extends Serializable> {
     List<T> findAll();
@@ -35,4 +37,6 @@ public interface CrudService <T, ID extends Serializable> {
     void delete(Iterable<T> iterable);
 
     void deleteAll();
+
+    <E, K> Map<K, List<E>> groupBy(List<E> list, Function<E, K> keyFunction);
 }

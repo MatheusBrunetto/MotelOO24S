@@ -2,6 +2,7 @@ package com.utfpr.moteloo24s.controller;
 
 import com.utfpr.moteloo24s.model.Bedroom;
 import com.utfpr.moteloo24s.model.Location;
+import com.utfpr.moteloo24s.model.LocationItem;
 import com.utfpr.moteloo24s.model.PeriodType;
 import com.utfpr.moteloo24s.service.BedroomService;
 import com.utfpr.moteloo24s.service.CrudService;
@@ -9,6 +10,7 @@ import com.utfpr.moteloo24s.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -46,4 +48,5 @@ public class LocationController extends CrudController<Location, UUID> {
             @RequestParam String locationId) {
         return locationService.finalizeLocation(UUID.fromString(locationId));
     }
+
 }

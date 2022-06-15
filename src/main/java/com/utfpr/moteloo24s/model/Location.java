@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -17,8 +19,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_id_location")
-    @SequenceGenerator(name = "sequence_id_location", sequenceName = "sequence_location")
+    @GeneratedValue
+    @Type(type = "uuid-char")
     private UUID id;
     @ManyToOne
     private Bedroom bedroom;
