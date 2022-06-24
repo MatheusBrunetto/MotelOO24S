@@ -1,9 +1,7 @@
 package com.utfpr.moteloo24s.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -11,7 +9,9 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Data
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class LocationItem {
@@ -20,6 +20,7 @@ public class LocationItem {
     @Type(type = "uuid-char")
     private UUID id;
     @ManyToOne
+    @JsonIgnore
     private Location location;
     @ManyToOne
     private Item item;

@@ -79,13 +79,13 @@ public class LocationServiceImpl extends CrudServiceImpl<Location, UUID> impleme
     }
 
     @Override
-    public List<Location> findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqual(Date inicialDate, Date finalDate) {
+    public List<Location> findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqual(LocalDateTime inicialDate, LocalDateTime finalDate) {
         return locationRepository.findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqual(inicialDate, finalDate);
     }
 
     @Override
-    public List<Location> findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqualAndAndBedroom_BedroomType(Date inicialDate, Date finalDate, BedroomType bedroomType) {
-        return locationRepository.findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqualAndAndBedroom_BedroomType(inicialDate, finalDate, bedroomType);
+    public List<Location> findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqualAndPeriodType(LocalDateTime inicialDate, LocalDateTime finalDate, PeriodType periodType) {
+        return locationRepository.findAllByExitTimeGreaterThanEqualAndExitTimeLessThanEqualAndPeriodType(inicialDate, finalDate, periodType);
     }
 
     private double calculateLocationValue(Bedroom bedroom, PeriodType periodType) {
