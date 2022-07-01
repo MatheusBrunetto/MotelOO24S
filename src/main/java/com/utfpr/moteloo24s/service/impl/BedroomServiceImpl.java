@@ -3,11 +3,10 @@ package com.utfpr.moteloo24s.service.impl;
 import com.utfpr.moteloo24s.model.Bedroom;
 import com.utfpr.moteloo24s.model.BedroomType;
 import com.utfpr.moteloo24s.model.Status;
-import com.utfpr.moteloo24s.repository.BedroomRepository;
+import repository.BedroomRepository;
 import com.utfpr.moteloo24s.service.BedroomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

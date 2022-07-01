@@ -1,4 +1,4 @@
-package com.utfpr.moteloo24s.repository;
+package repository;
 
 import com.utfpr.moteloo24s.model.BedroomType;
 import org.springframework.data.jpa.repository.JpaRepository;

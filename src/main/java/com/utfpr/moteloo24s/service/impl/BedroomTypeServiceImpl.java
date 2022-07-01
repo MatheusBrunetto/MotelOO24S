@@ -1,7 +1,7 @@
 package com.utfpr.moteloo24s.service.impl;
 
 import com.utfpr.moteloo24s.model.BedroomType;
-import com.utfpr.moteloo24s.repository.BedroomTypeRepository;
+import repository.BedroomTypeRepository;
 import com.utfpr.moteloo24s.service.BedroomTypeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

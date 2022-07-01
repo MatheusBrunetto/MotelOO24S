@@ -1,7 +1,7 @@
 package com.utfpr.moteloo24s.service.impl;
 
 import com.utfpr.moteloo24s.model.*;
-import com.utfpr.moteloo24s.repository.LocationRepository;
+import repository.LocationRepository;
 import com.utfpr.moteloo24s.service.BedroomService;
 import com.utfpr.moteloo24s.service.LocationService;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;

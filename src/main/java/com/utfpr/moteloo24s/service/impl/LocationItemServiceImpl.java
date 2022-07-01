@@ -1,7 +1,7 @@
 package com.utfpr.moteloo24s.service.impl;
 
 import com.utfpr.moteloo24s.model.LocationItem;
-import com.utfpr.moteloo24s.repository.LocationItemRepository;
+import repository.LocationItemRepository;
 import com.utfpr.moteloo24s.service.LocationItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
